@@ -1,28 +1,42 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HeaderBar @SearchInput="ApiCreator"/>
+    <MainBody :MoviesArray="this.FilmObjectArray"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import axios from 'axios';
+import HeaderBar from './components/HeaderBar.vue';
+import MainBody from './components/MainBody.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    HeaderBar,
+    MainBody
+  },
+  data(){
+    return{
+      apiToSearch:"",
+      FilmObjectArray:[],
+    }
+  },
+  methods:{
+    ApiCreator(SearchString){
+      this.apiToSearch='https://api.themoviedb.org/3/search/movie?api_key=f97c51adbea6b8bac5f39b824003cd49&query='+SearchString+'&language=it-IT';
+      console.log(this.apiToSearch)
+      axios.get(this.apiToSearch)
+      .then(severAnswer => {
+      this.FilmObjectArray = severAnswer.data.results;
+      })
+    }
+  },
 }
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import '~@fortawesome/fontawesome-free/css/all.css';
+@import './styles/general.scss';
+@import './styles/var.scss';
 </style>
