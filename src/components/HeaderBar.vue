@@ -4,7 +4,7 @@
         <div>
             <label for="searchbar">Cerca i tuoi Film Preferiti</label>
             <input type="text" id="searchbar" v-model="MovieSearch">
-            <button @click="$emit('SearchInput', MovieSearch)" ><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button @click="$emit('SearchInput', MovieSearch)"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
     </header>
 </template>

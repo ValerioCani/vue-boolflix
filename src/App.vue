@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <HeaderBar @SearchInput="ApiCreator"/>
-    <MainBody :MoviesArray="this.FilmObjectArray"/>
+    <MainBody :MoviesArray="this.FilmObjectArray" :SeriesArray="this.SeriesObjectArray"/>
   </div>
 </template>
 
@@ -18,17 +18,31 @@ export default {
   },
   data(){
     return{
-      apiToSearch:"",
+      MoviesapiToSearch:"",
+      SeriesapiToSearch:"",
       FilmObjectArray:[],
+      SeriesObjectArray:[],
     }
   },
   methods:{
     ApiCreator(SearchString){
-      this.apiToSearch='https://api.themoviedb.org/3/search/movie?api_key=f97c51adbea6b8bac5f39b824003cd49&query='+SearchString+'&language=it-IT';
-      console.log(this.apiToSearch)
-      axios.get(this.apiToSearch)
+      this.MovieApiCreator(SearchString);
+      this.SeriesApiCreator(SearchString);
+    },
+    MovieApiCreator(SearchString){
+      this.MoviesapiToSearch='https://api.themoviedb.org/3/search/movie?api_key=f97c51adbea6b8bac5f39b824003cd49&query='+SearchString+'&language=it-IT';
+      console.log(this.MoviesapiToSearch)
+      axios.get(this.MoviesapiToSearch)
       .then(severAnswer => {
       this.FilmObjectArray = severAnswer.data.results;
+      })
+    },
+     SeriesApiCreator(SearchString){
+      this.SeriesapiToSearch='https://api.themoviedb.org/3/search/tv?api_key=f97c51adbea6b8bac5f39b824003cd49&query='+SearchString+'&language=it-IT';
+      console.log(this.SeriesapiToSearch)
+      axios.get(this.SeriesapiToSearch)
+      .then(severAnswer => {
+      this.SeriesObjectArray = severAnswer.data.results;
       })
     }
   },

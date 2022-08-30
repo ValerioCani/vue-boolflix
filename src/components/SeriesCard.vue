@@ -1,6 +1,6 @@
 <template>
     <section>
-        <div class="MovieCard" v-for="(movie, index) in this.MoviesArray" :key="index">
+        <div class="SerisCard" v-for="(movie, index) in this.SeriesArray" :key="index">
             <h2>Titolo:</h2>
             <p>{{movie.title}}</p>
             <h2>Titlo Originale:</h2>
@@ -25,7 +25,7 @@
 export default {
     name:'MovieCard',
     props:{
-        MoviesArray:Array
+        SeriesArray:Array
     },
 }
 </script>
@@ -37,10 +37,10 @@ section{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    .MovieCard{
+    .SerisCard{
         width: 300px;
         height: 400px;
-        background-color: aqua;
+        background-color: rebeccapurple;
         margin: 10px;
     }
 }

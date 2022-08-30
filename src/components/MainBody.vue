@@ -1,18 +1,22 @@
 <template>
     <main>
         <MovieCard :MoviesArray="this.MoviesArray"/>
+        <SeriesCard :MoviesArray="this.SeriesArray"/>
     </main>
 </template>
 
 <script>
 import MovieCard from './MovieCard.vue'
+import SeriesCard from './SeriesCard.vue'
 export default {
     name:'MainBody',
     components:{
-       MovieCard 
+       MovieCard,
+       SeriesCard
     },
     props:{
-        MoviesArray:Array
+        MoviesArray:Array,
+        SeriesArray:Array
     }
 }   
 </script>
