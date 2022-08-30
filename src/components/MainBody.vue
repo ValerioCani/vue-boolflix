@@ -1,7 +1,9 @@
 <template>
     <main>
+        <h2>Film</h2>
         <MovieCard :MoviesArray="this.MoviesArray"/>
-        <SeriesCard :MoviesArray="this.SeriesArray"/>
+        <h2>Serie TV</h2>
+        <SeriesCard :SeriesArray="this.SeriesArray"/>
     </main>
 </template>
 
@@ -27,5 +29,9 @@ export default {
 main{
     height:100%;
     background-color: $secondary_background_color;
+    text-align: center;
+    h2{
+        color: $text_color;
+    }
 }
 </style>
