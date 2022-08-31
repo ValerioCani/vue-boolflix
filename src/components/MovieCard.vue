@@ -48,6 +48,9 @@ export default {
             for(let i=0; i<starcounter; i++){
                 this.starsHTML += '<i class="fa-solid fa-star"></i>';
             }
+            for(let i=starcounter; i<5; i++){
+                this.starsHTML += '<i class="fa-regular fa-star"></i>';
+            }
         }
     }
 }
