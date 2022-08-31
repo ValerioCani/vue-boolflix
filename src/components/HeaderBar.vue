@@ -35,5 +35,15 @@ header{
         color: $text_color;
         margin-right: 10px;
     }
+    input{
+        height: 30px;
+        padding: 10px;
+        font-weight: bold;
+    }
+    button{
+        width: 100px;
+        height: 30px;
+        cursor: pointer;
+    }
 }
 </style>

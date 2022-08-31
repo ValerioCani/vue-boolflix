@@ -1,9 +1,10 @@
 <template>
     <main>
         <h2>Film</h2>
-        <MovieCard :MoviesArray="this.MoviesArray"/>
+        <MovieCard class="card" :MoviesArray="this.MoviesArray"/>
+        <div class="divisor"></div>
         <h2>Serie TV</h2>
-        <SeriesCard :SeriesArray="this.SeriesArray"/>
+        <SeriesCard class="card" :SeriesArray="this.SeriesArray"/>
     </main>
 </template>
 
@@ -31,7 +32,15 @@ main{
     background-color: $secondary_background_color;
     text-align: center;
     h2{
-        color: $text_color;
+        color: $brand_color;
+        font-size: 40px;
+        text-transform: uppercase;
+    }
+    .divisor{
+        border:solid 3px $primary_background_color;
+    }
+    .card{
+        cursor: pointer;
     }
 }
 </style>
