@@ -3,13 +3,16 @@
         <div class="MovieCard" v-for="(show, index) in this.DataArray" :key="index">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
-                    <img :src="'https://image.tmdb.org/t/p/w342'+ show.poster_path" alt="Avatar" >
+                    <img v-if="(!show.poster_path=='')" :src="'https://image.tmdb.org/t/p/w342'+ show.poster_path" alt="Avatar" >
+                    <h2 v-else>Immagine non disponibile</h2>
                 </div>
                 <div class="flip-card-back">
                     <p>Titolo:</p>
-                    <h2>{{show.title}}</h2>
+                    <h2 v-if="show.hasOwnProperty('title')">{{show.title}}</h2>
+                    <h2 v-else>{{show.name}}</h2>
                     <p>Titlo Originale:</p>
-                    <h2>{{show.original_title}}</h2>
+                    <h2 v-if="show.hasOwnProperty('original_title')">{{show.original_title}}</h2>
+                    <h2 v-else>{{show.original_name}}</h2>
                     <p>Data di Uscita</p>
                     <h2>{{show.release_date}}</h2>
                     <p>Lingua:</p>

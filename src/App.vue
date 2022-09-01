@@ -37,7 +37,7 @@ export default {
       this.FilmObjectArray = severAnswer.data.results;
       })
     },
-     SeriesApiCreator(SearchString){
+    SeriesApiCreator(SearchString){
       this.SeriesapiToSearch='https://api.themoviedb.org/3/search/tv?api_key=f97c51adbea6b8bac5f39b824003cd49&query='+SearchString+'&language=it-IT';
       console.log(this.SeriesapiToSearch)
       axios.get(this.SeriesapiToSearch)
