@@ -1,21 +1,19 @@
 <template>
     <main>
         <h2>Film</h2>
-        <MovieCard class="card" :MoviesArray="this.MoviesArray"/>
+        <MovieCard class="card" :DataArray="this.MoviesArray"/>
         <div class="divisor"></div>
         <h2>Serie TV</h2>
-        <SeriesCard class="card" :SeriesArray="this.SeriesArray"/>
+        <MovieCard class="card" :DataArray="this.SeriesArray"/>
     </main>
 </template>
 
 <script>
 import MovieCard from './MovieCard.vue'
-import SeriesCard from './SeriesCard.vue'
 export default {
     name:'MainBody',
     components:{
-       MovieCard,
-       SeriesCard
+       MovieCard
     },
     props:{
         MoviesArray:Array,
